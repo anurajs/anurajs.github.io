@@ -1,4 +1,6 @@
-let original = new Date("2021-07-27");
+let original = new Date(
+	"Thu Jul 29 2021 01:42:14 GMT+0100 (British Summer Time)"
+);
 let now = new Date();
 let difference = now - original;
 let day = 1000 * 60 * 60 * 24;
