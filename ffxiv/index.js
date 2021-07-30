@@ -1,6 +1,8 @@
 fetch("https://anurajs.github.io/ffxiv/data.json")
-	.then((response) => {
-		let original = new Date(response.json.date);
+	.then(async (response) => {
+		let json = await response.json();
+		console.log(json);
+		let original = new Date(json.date);
 		let now = new Date();
 		let difference = now - original;
 		let day = 1000 * 60 * 60 * 24;
