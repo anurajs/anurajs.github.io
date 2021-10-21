@@ -15,6 +15,7 @@ const getSong = (requestOptions) => {
     "user"
   )}&format=json&method=user.getrecenttracks&limit=1`;
   return new Promise((resolve, reject) => {
+    console.log(url);
     fetch(url, requestOptions)
       .then(async (resp) => {
         let details = await resp.json();
@@ -31,10 +32,10 @@ const getSong = (requestOptions) => {
       })
       .catch((err) => {
         console.log(err);
-        if (err.response.data.error == 6) {
-          reject("Check your api key or username in the .env file");
+        if (err?.response?.data?.error == 6) {
+          reject("Check your api key or username in the url");
         } else {
-          reject(err.response.data.message);
+          reject("Check your api key or username in the url");
         }
       });
   });
