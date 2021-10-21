@@ -9,16 +9,13 @@ var requestOptions = {
 let lastSong = null;
 
 const getSong = (requestOptions) => {
-  const url = "http://ws.audioscrobbler.com/2.0/";
+  const url = `https://ws.audioscrobbler.com/2.0/?api_key=${urlParams.get(
+    "key"
+  )}&user=${urlParams.get(
+    "user"
+  )}&format=json&method=user.getrecenttracks&limit=1`;
   return new Promise((resolve, reject) => {
-    fetch(
-      `http://ws.audioscrobbler.com/2.0/?api_key=${urlParams.get(
-        "key"
-      )}&user=${urlParams.get(
-        "user"
-      )}&format=json&method=user.getrecenttracks&limit=1`,
-      requestOptions
-    )
+    fetch(url, requestOptions)
       .then(async (resp) => {
         let details = await resp.json();
         details = details["recenttracks"]["track"][0];
