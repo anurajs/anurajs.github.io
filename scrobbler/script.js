@@ -8,8 +8,6 @@ var requestOptions = {
 
 let lastSong = null;
 
-fetch;
-
 const getSong = (requestOptions) => {
   const url = "http://ws.audioscrobbler.com/2.0/";
   return new Promise((resolve, reject) => {
